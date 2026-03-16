@@ -1,17 +1,18 @@
-name : Thử nghiệm đọc file README.md
+name: Thử nghiệm đọc file README
 on:
-  push: brancher:["main"] #Chạy khi code mới đẩy lên nhánh main 
-  
+  push:
+    branches: ["main"] # Code mới đẩy lên main
+
 jobs:
   thuc_hanh_doc_file:
-  rush on : untutu-latest   #Mượn máy ảo untutu của Github để chạy
+    runs-on: ubuntu-latest #Mượn máy ảo github
 
-  steps:
-  -name : Bước 1 - Xin chào 
-  run: ehco "Hell World"    #Lệnh in ra màn hình
+    steps:
+      - name: Bước 1 - Xin chào
+        run: echo "Hello World"  #Lệnh in ra màn hình 
 
-  -name: Bước 2 - Tải code 
-  uses:  actions/checkout@v6.0.2 #Robot tự động copy code vào máy ảo 
+      - name: Bước 2 - Tải code (Checkout)
+        uses: actions/checkout@v6.0.2 #Robot tự động
 
-  -name: Bước 3 - Đọc file
-  run: catch README.md     #Mở nội dung file README.md để xem 
+      - name: Bước 3 - Đọc file
+        run: cat README.md 
