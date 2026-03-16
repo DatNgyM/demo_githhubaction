@@ -1,0 +1,8 @@
+target/
+.git/
+.github/
+*.md
+*.pdf
+.DS_Store
+index.html
+styles.css
