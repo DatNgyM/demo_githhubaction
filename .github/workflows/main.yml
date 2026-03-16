@@ -1,5 +1,5 @@
 name : Thử nghiệm đọc file README 
-on 
+on:
   push: brancher:["main"] #Chạy khi code mới đẩy lên nhánh main 
   
 jobs:
