@@ -1,4 +1,4 @@
-name : Thử nghiệm đọc file README 
+name : Thử nghiệm đọc file README.md
 on:
   push: brancher:["main"] #Chạy khi code mới đẩy lên nhánh main 
   
