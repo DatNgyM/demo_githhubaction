@@ -12,10 +12,15 @@ RUN mvn package -DskipTests -B
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
+# Tớ tạm comment 2 dòng này lại vì user 'spring' không có quyền mở port 80 trên Linux.
+# Nếu hệ thống cấp quyền sẵn thì cậu có thể mở lại sau nhé.
+# RUN addgroup -S spring && adduser -S spring -G spring
+# USER spring:spring
 
 COPY --from=build /app/target/*.jar app.jar
 
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Đổi thông báo port cho Docker biết
+EXPOSE 80
+
+# Ép Spring Boot chạy ở port 80 bằng tham số --server.port=80
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=80"]
